@@ -1,6 +1,26 @@
-#Define Variables
+<#
+.SYNOPSIS
+   This renews the certificate and also exports the certificate then to be placed onto other servers that have been imported from the CSV
 
- 
+.DESCRIPTION
+   This renews the certificate and also exports the certificate then to be placed onto other servers that have been imported from the CSV
+
+.PARAMETER Format
+  
+
+.EXAMPLE
+    None at this time
+
+.NOTES
+   File Name      : Renew-Certificate.ps1
+   Author         : Thomas White
+   Date           : 06/08/2023
+   Version        : 1.0
+
+.LINK
+   
+#>
+
 #Import Servers and Cert info
 $ServerssandCerts = Import-Csv -LiteralPath c:\temp\certservers.csv
 
