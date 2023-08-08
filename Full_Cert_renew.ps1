@@ -6,7 +6,7 @@
    This renews the certificate and also exports the certificate then to be placed onto other servers that have been imported from the CSV
 
 .PARAMETER Format
-  
+  test
 
 .EXAMPLE
     None at this time
