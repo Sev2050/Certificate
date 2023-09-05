@@ -1,4 +1,7 @@
 #This function does not renew the certificate but puts it into file so that Task Schedule can renew the certificate
+#Created 8/10/2023
+#Author: Thomas White
+#Version 1.0
 
 function Renew-IISCertificate {
     param (
