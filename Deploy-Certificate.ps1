@@ -1,3 +1,7 @@
+#Created 8/10/2023
+#Author: Thomas White
+#Version 1.0
+
 function Deploy-Certificate {
     param (
         [Parameter(Mandatory=$true)]
