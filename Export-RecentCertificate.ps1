@@ -10,9 +10,10 @@ function Export-RecentCertificate {
         [string]$CertificateStore,
 
         [String]$FilePath
+        [String]$Days
     )
-
-    $certificates = @(Get-ChildItem -Path Cert:\$CertificateStore\My | Where-Object { $_.NotBefore -gt (Get-Date).AddDays(-30) } | Select-Object Subject, NotBefore, Thumbprint, PSPath)
+    If ($Days) { } else {$Days = "5"}
+    $certificates = @(Get-ChildItem -Path Cert:\$CertificateStore\My | Where-Object { $_.NotBefore -gt (Get-Date).AddDays(-$Days) } | Select-Object Subject, NotBefore, Thumbprint, PSPath)
 
     if ($certificates.Count -eq 0) {
         Write-Host "No recent certificates found."
@@ -47,4 +48,4 @@ function Export-RecentCertificate {
 }
 
 # Example usage:
-# Export-RecentCertificate -CertificateStore CurrentUser
+# Export-RecentCertificate -CertificateStore LocalMachine -FilePath c:\temp -Days 10
