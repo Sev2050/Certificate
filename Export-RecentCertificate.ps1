@@ -12,7 +12,7 @@ function Export-RecentCertificate {
         [String]$FilePath
     )
 
-    $certificates = Get-ChildItem -Path Cert:\$CertificateStore\My | Where-Object { $_.NotBefore -gt (Get-Date).AddDays(-30) } | Select-Object Subject, NotBefore, Thumbprint, PSPath
+    $certificates = @(Get-ChildItem -Path Cert:\$CertificateStore\My | Where-Object { $_.NotBefore -gt (Get-Date).AddDays(-30) } | Select-Object Subject, NotBefore, Thumbprint, PSPath)
 
     if ($certificates.Count -eq 0) {
         Write-Host "No recent certificates found."
